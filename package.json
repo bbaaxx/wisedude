@@ -2,11 +2,16 @@
   "name": "wisedude",
   "description": "wisedude Project Generated from HotTowel Angular",
   "version": "0.0.0",
+  "license": "MIT",
   "scripts": {
     "init": "npm install",
     "install": "bower install",
     "start": "node src/server/app.js",
     "test": "gulp test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bbaaxx/wisedude.git"
   },
   "dependencies": {
     "body-parser": "^1.8.2",
