@@ -13,8 +13,8 @@
     }
 
     var config = {
-        appErrorPrefix: '[hottowel Error] ',
-        appTitle: 'hottowel'
+        appErrorPrefix: '[wisedude Hiccup] ',
+        appTitle: 'wisedude'
     };
 
     core.value('config', config);
