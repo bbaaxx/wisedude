@@ -3,10 +3,10 @@
 
     angular
         .module('app.widgets')
-        .directive('wdWidgetMapBasic', wdWidgetMapBasic);
+        .directive('htWidgetHeader', htWidgetHeader);
 
     /* @ngInject */
-    function wdWidgetMapBasic() {
+    function htWidgetHeader() {
         //Usage:
         //<div ht-widget-header title="vm.map.title"></div>
         // Creates:
@@ -15,14 +15,13 @@
         //      allow-collapse="true" </div>
         var directive = {
             scope: {
-                'height': '@'
+                'title': '@',
+                'subtitle': '@',
+                'rightText': '@',
+                'allowCollapse': '@'
             },
-            // templateUrl: 'app/widgets/widget-map-basic.html',
+            templateUrl: 'app/widgets/widget-header.html',
             restrict: 'EA'
-        };
-        
-        function buildMap(){
-            
         };
         return directive;
     }

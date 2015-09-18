@@ -1,0 +1,19 @@
+<section class="mainbar">
+    <section class="matter">
+        <div class="container">
+            <div class="row">
+                
+                <div ht-widget-header title="{{vm.title}}"></div>
+                
+                <div>
+                    <p>Accuracy: {{vm.currentPosition.coords.accuracy}}</p>
+                    <button class="btn btn-success" ng-click="vm.updateCurrentPosition(vm.currentPosition)">update position</button>
+                </div>
+                
+                
+                <div id="locator-map"></div>
+                
+            </div>
+        </div>
+    </section>
+</section>

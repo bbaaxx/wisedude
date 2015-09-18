@@ -5,6 +5,7 @@
         'app.core',
         'app.widgets',
         'app.introduction',
+        'app.locator',
         'app.layout'
     ]);
 

@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('app.introduction')
+        .module('app.locator')
         .run(appRun);
 
     appRun.$inject = ['routerHelper'];
@@ -14,16 +14,16 @@
     function getStates() {
         return [
             {
-                state: 'introduction',
+                state: 'locator',
                 config: {
-                    url: '/',
-                    templateUrl: 'app/introduction/introduction.html',
-                    controller: 'IntroductionController',
+                    url: '/locator',
+                    templateUrl: 'app/locator/locator.html',
+                    controller: 'LocatorController',
                     controllerAs: 'vm',
-                    title: 'Introduction',
+                    title: 'Locator',
                     settings: {
-                        nav: 1,
-                        content: '<i class="fa fa-lock"></i> Introduction'
+                        nav: 2,
+                        content: '<i class="fa fa-lock"></i> Locator'
                     }
                 }
             }
