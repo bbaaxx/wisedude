@@ -13,8 +13,9 @@
   ],
   "devDependencies": {
     "angular-mocks": "^1.4.5",
-    "sinon": "http://sinonjs.org/releases/sinon-1.12.1.js",
-    "bardjs": "^0.1.4"
+    "bardjs": "^0.1.4",
+    "bootstrap-sass": "~3.3.5",
+    "sinon": "http://sinonjs.org/releases/sinon-1.12.1.js"
   },
   "dependencies": {
     "angular": "^1.4.5",
