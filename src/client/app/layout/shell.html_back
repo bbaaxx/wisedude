@@ -1,0 +1,24 @@
+<div ng-controller="ShellController as vm">
+    <header class="clearfix">
+        <!--<ht-top-nav navline="vm.navline"></ht-top-nav>-->
+    </header> 
+    <section layout="row" id="content" class="content">
+        
+        <md-sidenavclass="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
+            <div ng-include="'app/layout/sidebar.html'"></div> 
+        </md-sidenav>
+        
+        <md-content>
+            <div ui-view class="shuffle-animation"></div>
+        </md-content>
+        
+        <div ngplus-overlay
+             ngplus-overlay-delay-in="50"
+             ngplus-overlay-delay-out="700"
+             ngplus-overlay-animation="dissolve-animation">
+            <img src="images/busy.gif"/>
+            <div class="page-spinner-message overlay-message">{{vm.busyMessage}}</div>
+        </div>
+        
+    </section>
+</div>

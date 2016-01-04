@@ -43,7 +43,7 @@ module.exports = function() {
             '**/*.module.js',
             '**/*.js'
         ],
-        cssPreprocessor: 'less',
+        cssPreprocessor: 'sass',
         less: client + 'styles/styles.less',
         sass: client + 'styles/styles.scss',
         report: report,

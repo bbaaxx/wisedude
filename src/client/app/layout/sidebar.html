@@ -1,16 +1,33 @@
-﻿<div ng-controller="SidebarController as vm">
-    <ht-sidebar when-done-animating="vm.sidebarReady()">
-        <div class="sidebar-filler"></div>
-        <div class="sidebar-dropdown"><a href="#">Menu</a></div>
-        <div class="sidebar-inner">
-            <div class="sidebar-widget"></div>
-            <ul class="navi">
-                <li class="nlightblue fade-selection-animation" ng-class="vm.isCurrent(r)"
-                    ng-repeat="r in vm.navRoutes">
-                    <a ui-sref="{{r.name}}"
-                       ng-bind-html="r.settings.content"></a>
-                </li>
-            </ul>
-        </div>
-    </ht-sidebar>
+﻿<div ng-controller="SidebarController as vm" layout="column" flex>
+
+
+  <md-sidenav layout="column" flex
+              class="md-whiteframe-z2"
+              md-component-id="left"
+              when-done-animating="vm.sidebarReady()"
+              md-is-locked-open="$mdMedia('gt-sm')">
+
+    <md-list layout="column" flex>
+
+      <!-- List item #1 -->
+      <md-item>
+        <md-button>
+          <md-icon class="avatar"></md-icon>
+        Lia Luogo
+        </md-button>
+      </md-item>
+
+      <!-- List item #2 -->
+      <md-item>
+        <md-button>
+          <md-icon class="avatar"></md-icon>
+        Lawrence Ray
+        </md-button>
+      </md-item>
+
+    </md-list>
+
+  </md-sidenav>
+
+
 </div>

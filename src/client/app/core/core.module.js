@@ -3,7 +3,7 @@
 
     angular
         .module('app.core', [
-            'ngAnimate', 'ngSanitize',
+            'ngAnimate', 'ngSanitize', 'ngMaterial',
             'blocks.exception', 'blocks.logger', 'blocks.router', 'blocks.geoloc', 'blocks.utils',
             'ui.router', 'ngplus'
         ]);
