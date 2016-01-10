@@ -25,12 +25,12 @@
     <!-- endbuild -->
   </head>
 
-  <body>
+  <body layout flex>
 
-    <div id="main-app-container">
+    <div id="main-app-container" layout flex>
 
       <!--Include the shell template-->
-      <div ng-include="'app/layout/shell.html'"></div>
+      <div ng-include="'app/layout/shell.html'" layout flex></div>
 
       <!--This displays the splash page-->
       <div id="splash-page" ng-show="showSplash">

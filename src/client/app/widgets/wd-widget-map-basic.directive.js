@@ -22,11 +22,13 @@
         };
         
         function buildMap(){
-          var latlong = [positionData.coords.latitude,positionData.coords.longitude];
+          var latlong = [positionData.coords.latitude, positionData.coords.longitude];
           var map = leaflet.map('locator-map').setView(latlong, 8);
 
           leaflet.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
-              attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+              attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors,'+ 
+              ' <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>,'+
+              ' Imagery © <a href="http://mapbox.com">Mapbox</a>',
               maxZoom: 18,
               id: 'bbaaxx.cienm7xac0h6rs6m3lhkxarr4',
               accessToken: 'pk.eyJ1IjoiYmJhYXh4IiwiYSI6ImNpZW5tN3hsbjBoOHNzc20yZDFmZHltaWMifQ.pokUST8M5Gpsw4HWMSZLyQ'
@@ -34,9 +36,9 @@
 
           var marker = leaflet.marker(latlong)
               .addTo(map)
-              .bindPopup("<b>You</b><br>are here.")
+              .bindPopup('<b>You</b><br>are here.')
               .openPopup();
-        };
+        }
 
         return directive;
     }

@@ -1,19 +1,19 @@
-<div ng-controller="ShellController as vm" layout="column">
+<div ng-controller="ShellController as vm" layout="column" flex>
 
-  <header>
-    <md-toolbar layout="row">
+  <header layout>
+    <md-toolbar layout>
       <!-- <ht-top-nav navline="vm.navline"></ht-top-nav> -->
       <h1>{{vm.navline.title}}</h1>
     </md-toolbar>
   </header>
 
-  <div layout="row">
+  <div layout flex>
 
-    <nav>
-      <div ng-include="'app/layout/sidebar.html'"></div>
+    <nav layout>
+      <div ng-include="'app/layout/sidebar.html'" layout></div>
     </nav>
 
-    <section> 
+    <section>
       <md-content id="content">
         <div ui-view class="shuffle-animation"></div>
       </md-content>
@@ -22,9 +22,9 @@
   </div>
 
   <div ngplus-overlay
-                     ngplus-overlay-delay-in="50"
-                     ngplus-overlay-delay-out="700"
-                     ngplus-overlay-animation="dissolve-animation">
+       ngplus-overlay-delay-in="50"
+       ngplus-overlay-delay-out="700"
+       ngplus-overlay-animation="dissolve-animation">
     <img src="images/busy.gif"/>
     <div class="page-spinner-message overlay-message">{{vm.busyMessage}}</div>
   </div>
