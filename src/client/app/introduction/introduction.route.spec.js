@@ -13,7 +13,7 @@ describe('introduction routes', function () {
         });
 
         it('should map state introduction to url /introduction ', function() {
-            expect($state.href('introduction', {})).to.equal('/introduction');
+            expect($state.href('introduction', {})).to.equal('/');
         });
 
         it('should map /introduction route to introduction View template', function () {

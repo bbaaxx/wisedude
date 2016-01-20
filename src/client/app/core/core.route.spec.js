@@ -15,7 +15,7 @@ describe('core', function() {
             expect($state.get('404').templateUrl).to.equal(views.four0four);
         });
 
-        it('of dashboard should work with $state.go', function() {
+        it('of introduction should work with $state.go', function() {
             $state.go('404');
             $rootScope.$apply();
             expect($state.is('404'));

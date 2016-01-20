@@ -71,8 +71,6 @@ gulp.task('styles', ['clean-styles'], function() {
         .pipe(gulp.dest(config.temp));
 });
 
-
-
 /**
  * Copy fonts
  * @return {Stream}
@@ -101,7 +99,6 @@ gulp.task('images', ['clean-images'], function() {
 // gulp.task('less-watcher', function() {
 //     gulp.watch([config[config.cssPreprocessor]], ['styles']);
 // });
-
 
 /**
  * Create $templateCache from the html templates

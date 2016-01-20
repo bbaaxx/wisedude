@@ -3,8 +3,7 @@ describe('layout', function() {
     describe('sidebar', function() {
         var controller;
         var views = {
-            dashboard: 'app/dashboard/dashboard.html',
-            customers: 'app/customers/customers.html'
+            introduction: 'app/introduction/introduction.html'
         };
 
         beforeEach(function() {
@@ -27,7 +26,7 @@ describe('layout', function() {
         });
 
         it('should have isCurrent() for /customers to return `current`', function() {
-            $location.path('/customers');
+            $location.path('/introduction');
             expect(controller.isCurrent($state.current)).to.equal('current');
         });
 

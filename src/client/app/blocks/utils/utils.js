@@ -17,9 +17,8 @@
         return service;
         /////////////////////
 
-        function isFunction(functionToCheck) {
-            var getType = {};
-            return functionToCheck && getType.toString.call(functionToCheck) === '[object Function]';
+        function isFunction(func) {
+            return func && {}.toString.call(func) === '[object Function]';
         }
 
     }
