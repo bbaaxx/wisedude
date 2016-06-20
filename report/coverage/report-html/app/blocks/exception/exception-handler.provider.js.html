@@ -12,13 +12,13 @@
     </style>
 </head>
 <body>
-<div class="header low">
+<div class="header medium">
     <h1>Code coverage report for <span class="entity">app/blocks/exception/exception-handler.provider.js</span></h1>
     <h2>
-        Statements: <span class="metric">36.84% <small>(7 / 19)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Statements: <span class="metric">73.68% <small>(14 / 19)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         Branches: <span class="metric">0% <small>(0 / 2)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
-        Functions: <span class="metric">14.29% <small>(1 / 7)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
-        Lines: <span class="metric">36.84% <small>(7 / 19)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">85.71% <small>(6 / 7)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">73.68% <small>(14 / 19)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
     </h2>
     <div class="path"><a href="../../../index.html">All files</a> &#187; <a href="index.html">app/blocks/exception/</a> &#187; exception-handler.provider.js</div>
@@ -108,17 +108,29 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">3</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
@@ -129,21 +141,9 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -174,18 +174,18 @@
     /**
      * Must configure the exception handling
      */
-<span class="fstat-no" title="function not covered" >    function exceptionHandlerProvider() {</span>
+    function exceptionHandlerProvider() {
         /* jshint validthis:true */
-<span class="cstat-no" title="statement not covered" >        this.config = {</span>
+        this.config = {
             appErrorPrefix: undefined
         };
 &nbsp;
-<span class="cstat-no" title="statement not covered" >        this.configure = <span class="fstat-no" title="function not covered" >function (appErrorPrefix) {</span></span>
-<span class="cstat-no" title="statement not covered" >            this.config.appErrorPrefix = appErrorPrefix;</span>
+        this.configure = function (appErrorPrefix) {
+            this.config.appErrorPrefix = appErrorPrefix;
         };
 &nbsp;
-<span class="cstat-no" title="statement not covered" >        this.$get = <span class="fstat-no" title="function not covered" >function() {</span></span>
-<span class="cstat-no" title="statement not covered" >            return {config: this.config};</span>
+        this.$get = function() {
+            return {config: this.config};
         };
     }
 &nbsp;
@@ -197,8 +197,8 @@
      * @param  {Object} $provide
      */
     /* @ngInject */
-<span class="fstat-no" title="function not covered" >    function config($provide) {</span>
-<span class="cstat-no" title="statement not covered" >        $provide.decorator('$exceptionHandler', extendExceptionHandler);</span>
+    function config($provide) {
+        $provide.decorator('$exceptionHandler', extendExceptionHandler);
     }
 &nbsp;
     extendExceptionHandler.$inject = ['$delegate', 'exceptionHandler', 'logger'];
@@ -210,8 +210,8 @@
      * @param  {Object} logger
      * @return {Function} the decorated $exceptionHandler service
      */
-<span class="fstat-no" title="function not covered" >    function extendExceptionHandler($delegate, exceptionHandler, logger) {</span>
-<span class="cstat-no" title="statement not covered" >        return <span class="fstat-no" title="function not covered" >function(exception, cause) {</span></span>
+    function extendExceptionHandler($delegate, exceptionHandler, logger) {
+        return <span class="fstat-no" title="function not covered" >function(exception, cause) {</span>
 <span class="cstat-no" title="statement not covered" >            var appErrorPrefix = exceptionHandler.config.appErrorPrefix || '';</span>
 <span class="cstat-no" title="statement not covered" >            var errorData = {exception: exception, cause: cause};</span>
 <span class="cstat-no" title="statement not covered" >            exception.message = appErrorPrefix + exception.message;</span>
@@ -234,7 +234,7 @@
 
 </div>
 <div class="footer">
-    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sat Jun 18 2016 13:56:22 GMT-0500 (CDT)</div>
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sun Jun 19 2016 23:57:28 GMT-0500 (CDT)</div>
 </div>
 <script src="../../../prettify.js"></script>
 <script>

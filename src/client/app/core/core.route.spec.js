@@ -6,30 +6,26 @@ describe('core', function() {
         };
 
         beforeEach(function() {
-            module('app.core', bard.fakeToastr);
-            // bard.inject('$location', '$rootScope', '$state', '$templateCache');
-            bard.inject();
-            // $templateCache.put(views.core, '');
+            bard.appModule('app.core');
+            bard.inject('$location', '$rootScope', '$state', '$templateCache');
+            $templateCache.put(views.core, '');
         });
 
-        it('should have this dummy test', function() {
-          expect(true).to.equal(true);
-        })
+        it('should map /404 route to 404 View template', function() {
+            console.log($state);
+            expect($state.get('404').templateUrl).to.equal(views.four0four);
+        });
 
-        // it('should map /404 route to 404 View template', function() {
-        //     expect($state.get('404').templateUrl).to.equal(views.four0four);
-        // });
-        //
-        // it('of introduction should work with $state.go', function() {
-        //     $state.go('404');
-        //     $rootScope.$apply();
-        //     expect($state.is('404'));
-        // });
-        //
-        // it('should route /invalid to the otherwise (404) route', function() {
-        //     $location.path('/invalid');
-        //     $rootScope.$apply();
-        //     expect($state.current.templateUrl).to.equal(views.four0four);
-        // });
+        it('of introduction should work with $state.go', function() {
+            $state.go('404');
+            $rootScope.$apply();
+            expect($state.is('404'));
+        });
+
+        it('should route /invalid to the otherwise (404) route', function() {
+            $location.path('/invalid');
+            $rootScope.$apply();
+            expect($state.current.templateUrl).to.equal(views.four0four);
+        });
     });
 });
