@@ -17,7 +17,7 @@
       "allowComments": true,
       "allowRegex": true
     },
-    "validateIndentation": 4,
+    "validateIndentation": 2,
     "validateQuoteMarks": "'",
 
     "disallowMultipleLineStrings": true,
@@ -50,7 +50,7 @@
     "requireSpaceBeforeBlockStatements": true,
     "requireLineFeedAtFileEnd": true,
     "disallowSpacesInsideArrayBrackets": "all",
-    "disallowSpacesInsideParentheses": true,
+    "disallowSpacesInsideParentheses": false,
 
     "jsDoc": {
         "checkAnnotations": true,

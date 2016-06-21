@@ -1,25 +1,25 @@
 (function() {
-    'use strict';
+  'use strict';
 
-    angular
-        .module('blocks.utils')
-        .factory('utils', utils);
+  angular
+    .module('blocks.utils')
+    .factory('utils', utils);
 
-    utils.$inject = [];
+  utils.$inject = [];
 
-    /* @ngInject */
-    function utils() {
+  /* @ngInject */
+  function utils() {
 
-        var service = {
-            isFunction: isFunction
-        };
+    var service = {
+      isFunction: isFunction
+    };
 
-        return service;
-        /////////////////////
+    return service;
+    /////////////////////
 
-        function isFunction(func) {
-            return func && {}.toString.call(func) === '[object Function]';
-        }
-
+    function isFunction(func) {
+      return func && {}.toString.call(func) === '[object Function]';
     }
+
+  }
 }());
