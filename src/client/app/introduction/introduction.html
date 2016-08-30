@@ -1,19 +1,47 @@
 <section class="mainbar">
-  <section class="matter">
-    <div class="container">
-      <div class="row">
+  <md-card>
+    <img src="card-image.png" class="md-card-image" alt="image caption">
+    <md-card-content>
 
-        <div class="widget wviolet">
-          <div ht-widget-header title="{{vm.title}}"></div>
-          <div class="widget-content user">
-            <h3>TODO: Implement Your Own Features</h3>
-          </div>
-          <div class="widget-foot">
-            <div class="clearfix"></div>
-          </div>
-        </div>
-
+      <div layout="row" layout-wrap>
+        <md-input-container class="less-space" flex="100">
+          <label>Username</label>
+          <input type="text" ng-model="user.name">
+        </md-input-container>
+        <md-input-container class="less-space" flex>
+          <label>Password</label>
+          <input type="text" ng-model="user.password">
+        </md-input-container>
       </div>
+
+      <div layout="row" layout-wrap>
+        <md-input-container class="less-space" flex="50">
+          <label>Perrito</label>
+          <input type="text" ng-model="user.perrito">
+        </md-input-container>
+        <md-input-container class="less-space" flex>
+          <label>Gatito</label>
+          <input type="text" ng-model="user.gatito">
+        </md-input-container>
+      </div>
+
+    </md-card-content>
+    <md-card-footer>
+      Card footer
+    </md-card-footer>
+  </md-card>
+
+  <br>
+
+  <div layout="row" layout-wrap layout-md="column">
+    <div flex="33">
+      I'm above on mobile, and to the left on larger devices.
     </div>
-  </section>
+    <div flex="33">
+      I'm below on mobile, and to the right on larger devices.
+    </div>
+    <div flex="33">
+      I'm below on mobile, and to the right on larger devices.
+    </div>
+</div>
 </section>
