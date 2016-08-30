@@ -13,7 +13,7 @@
   }
 
   var config = {
-    appErrorPrefix: '[wisedude Error] ',
+    appErrorPrefix: '[wisedude Hiccup] ',
     appTitle: 'wisedude'
   };
 

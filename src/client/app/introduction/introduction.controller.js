@@ -1,20 +1,20 @@
-(function () {
-    'use strict';
+(function() {
+  'use strict';
 
-    angular
-        .module('app.introduction')
-        .controller('IntroductionController', IntroductionController);
+  angular
+    .module('app.introduction')
+    .controller('IntroductionController', IntroductionController);
 
-    IntroductionController.$inject = ['logger'];
-    /* @ngInject */
-    function IntroductionController(logger) {
-        var vm = this;
-        vm.title = 'Introduction';
+  IntroductionController.$inject = ['logger'];
+  /* @ngInject */
+  function IntroductionController(logger) {
+    var vm = this;
+    vm.title = 'Introduction';
 
-        activate();
+    activate();
 
-        function activate() {
-            logger.info('Activated Introduction View');
-        }
+    function activate() {
+      logger.info('Activated Introduction View');
     }
+  }
 })();

@@ -99,7 +99,13 @@ describe('htSidebar directive: ', function() {
       // '    <div ht-sidebar  when-done-animating="vm.sidebarReady(42)" >
       // therefore, the directive looks for scope.vm.sidebarReady
       // and should call that method with the value '42'
+<<<<<<< HEAD
       scope.vm = { sidebarReady: spy };
+=======
+      scope.vm = {
+        sidebarReady: spy
+      };
+>>>>>>> e4f446f6b5cefb51164bd4a760c528562899c286
 
       // tell angular to look again for that vm.sidebarReady property
       scope.$digest();
