@@ -36,16 +36,16 @@
 <body>
   <div>
     <div ng-include="'app/layout/shell.html'"></div>
-    <div id="splash-page" ng-show="showSplash">
-      <div class="page-splash">
-        <div class="page-splash-message">
-          wisedude
-        </div>
-        <div class="progress progress-striped active page-progress-bar">
-          <div class="bar"></div>
-        </div>
-      </div>
-    </div>
+    <!--<div id="splash-page" ng-show="showSplash">-->
+    <!--  <div class="page-splash">-->
+    <!--    <div class="page-splash-message">-->
+    <!--      wisedude-->
+    <!--    </div>-->
+    <!--    <div class="progress progress-striped active page-progress-bar">-->
+    <!--      <div class="bar"></div>-->
+    <!--    </div>-->
+    <!--  </div>-->
+    <!--</div>-->
   </div>
 
   <!-- build:js js/lib.js -->
@@ -67,6 +67,7 @@
   <script src="/bower_components/objectpath/lib/ObjectPath.js"></script>
   <script src="/bower_components/angular-schema-form/dist/schema-form.js"></script>
   <script src="/bower_components/angular-schema-form/dist/bootstrap-decorator.js"></script>
+  <script src="/bower_components/firebase/firebase.js"></script>
   <!-- endbower -->
   <!-- endbuild -->
 
@@ -74,6 +75,7 @@
   <!-- inject:js -->
   <script src="/src/client/app/app.module.js"></script>
   <script src="/src/client/app/blocks/exception/exception.module.js"></script>
+  <script src="/src/client/app/blocks/firebase-backend/firebase-backend.module.js"></script>
   <script src="/src/client/app/blocks/geoloc/geoloc.module.js"></script>
   <script src="/src/client/app/blocks/logger/logger.module.js"></script>
   <script src="/src/client/app/blocks/router/router.module.js"></script>
@@ -85,6 +87,7 @@
   <script src="/src/client/app/widgets/widgets.module.js"></script>
   <script src="/src/client/app/blocks/exception/exception-handler.provider.js"></script>
   <script src="/src/client/app/blocks/exception/exception.js"></script>
+  <script src="/src/client/app/blocks/firebase-backend/firebase-backend.service.js"></script>
   <script src="/src/client/app/blocks/geoloc/geoloc.js"></script>
   <script src="/src/client/app/blocks/logger/logger.js"></script>
   <script src="/src/client/app/blocks/router/router-helper.provider.js"></script>
@@ -97,10 +100,7 @@
   <script src="/src/client/app/core/constants.js"></script>
   <script src="/src/client/app/core/core.route.js"></script>
   <script src="/src/client/app/core/dataservice.js"></script>
-  <script src="/src/client/app/layout/ht-sidebar.directive.js"></script>
-  <script src="/src/client/app/layout/ht-top-nav.directive.js"></script>
   <script src="/src/client/app/layout/shell.controller.js"></script>
-  <script src="/src/client/app/layout/sidebar.controller.js"></script>
   <script src="/src/client/app/widgets/ht-img-person.directive.js"></script>
   <script src="/src/client/app/widgets/ht-widget-header.directive.js"></script>
   <!-- endinject -->
