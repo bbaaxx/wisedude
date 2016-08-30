@@ -61,12 +61,12 @@ gulp.task('plato', function(done) {
  */
 gulp.task('styles', ['clean-styles'], function() {
   log('Compiling ' + config.cssPreprocessor + ' --> CSS');
-  
+
   return gulp
     .src(config[config.cssPreprocessor])
     .pipe($.plumber()) // exit gracefully if something fails after this
     .pipe($[config.cssPreprocessor]())
-    //        .on('error', errorLogger) // more verbose and dupe output. requires emit.
+    //.on('error', errorLogger) // more verbose and dupe output. requires emit.
     .pipe($.autoprefixer({
       browsers: ['last 2 version', '> 5%']
     }))

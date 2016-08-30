@@ -34,5 +34,4 @@ var mockData = (function() {
     ];
   }
 
-
 })();

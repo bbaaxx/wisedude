@@ -3,11 +3,10 @@
 
   angular.module('app', [
     'app.core',
-    'app.widgets',
-    'app.introduction',
-    'app.admin',
-    'app.dashboard',
-    'app.layout'
+    'app.layout',
+    'app.intro',
+    'app.shefotest',
+    'app.widgets'
   ]);
 
 })();
