@@ -15,6 +15,10 @@
       resolveAlways: {}
     };
 
+    if (!(window.history && window.history.pushState)) {
+      window.location.hash = '/';
+    }
+
     $locationProvider.html5Mode(true);
 
     this.configure = function(cfg) {
@@ -58,7 +62,7 @@
 
       function handleRoutingErrors() {
         // Route cancellation:
-        // On routing error, go to the introduction.
+        // On routing error, go to the dashboard.
         // Provide an exit clause if it tries to do it twice.
         $rootScope.$on('$stateChangeError',
           function(event, toState, toParams, fromState, fromParams, error) {
@@ -68,7 +72,7 @@
             stateCounts.errors++;
             handlingStateChangeError = true;
             var destination = (toState &&
-                (toState.title || toState.name || toState.loadedTemplateUrl)) ||
+              (toState.title || toState.name || toState.loadedTemplateUrl)) ||
               'unknown target';
             var msg = 'Error routing to ' + destination + '. ' +
               (error.data || '') + '. <br/>' + (error.statusText || '') +
@@ -84,9 +88,7 @@
         updateDocTitle();
       }
 
-      function getStates() {
-        return $state.get();
-      }
+      function getStates() { return $state.get(); }
 
       function updateDocTitle() {
         $rootScope.$on('$stateChangeSuccess',

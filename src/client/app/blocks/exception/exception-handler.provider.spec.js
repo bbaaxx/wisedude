@@ -55,7 +55,8 @@ describe('blocks.exception', function() {
         exceptionHandlerProvider.configure(mocks.prefix);
         try {
           $rootScope.$apply(functionThatWillThrow);
-        } catch (ex) {
+        }
+        catch (ex) {
           exception = ex;
           expect(ex.message).to.equal(mocks.prefix + mocks.errorMessage);
         }

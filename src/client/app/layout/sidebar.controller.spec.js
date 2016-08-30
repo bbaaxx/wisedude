@@ -3,7 +3,8 @@ describe('layout', function() {
   describe('sidebar', function() {
     var controller;
     var views = {
-      introduction: 'app/introduction/introduction.html'
+      dashboard: 'app/dashboard/dashboard.html',
+      customers: 'app/customers/customers.html'
     };
 
     beforeEach(function() {
@@ -26,15 +27,13 @@ describe('layout', function() {
     });
 
     it('should have isCurrent() for /customers to return `current`', function() {
-      $location.path('/introduction');
+      $location.path('/customers');
       expect(controller.isCurrent($state.current)).to.equal('current');
     });
 
     it('should have isCurrent() for non route not return `current`', function() {
       $location.path('/invalid');
-      expect(controller.isCurrent({
-        title: 'invalid'
-      })).not.to.equal('current');
+      expect(controller.isCurrent({ title: 'invalid' })).not.to.equal('current');
     });
   });
 });

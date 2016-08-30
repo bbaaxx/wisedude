@@ -44,4 +44,4 @@
       $log.warn('Warning: ' + message, data);
     }
   }
-}());
+} ());

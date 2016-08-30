@@ -5,9 +5,9 @@
     .module('app.layout')
     .controller('ShellController', ShellController);
 
-  ShellController.$inject = ['$rootScope', '$timeout', '$mdSidenav', 'config', 'logger'];
+  ShellController.$inject = ['$rootScope', '$timeout', 'config', 'logger'];
   /* @ngInject */
-  function ShellController($rootScope, $timeout, $mdSidenav, config, logger) {
+  function ShellController($rootScope, $timeout, config, logger) {
     var vm = this;
     vm.busyMessage = 'Please wait ...';
     vm.isBusy = true;
@@ -29,7 +29,7 @@
       //Force a 1 second delay so we can see the splash.
       $timeout(function() {
         $rootScope.showSplash = false;
-      }, 2000);
+      }, 1000);
     }
   }
 })();

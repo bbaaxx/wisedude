@@ -6,9 +6,7 @@ var glob = require('glob');
 var gulp = require('gulp');
 var path = require('path');
 var _ = require('lodash');
-var $ = require('gulp-load-plugins')({
-  lazy: true
-});
+var $ = require('gulp-load-plugins')({ lazy: true });
 
 var colors = $.util.colors;
 var envenv = $.util.env;
@@ -42,9 +40,7 @@ gulp.task('vet', function() {
     .src(config.alljs)
     .pipe($.if(args.verbose, $.print()))
     .pipe($.jshint())
-    .pipe($.jshint.reporter('jshint-stylish', {
-      verbose: true
-    }))
+    .pipe($.jshint.reporter('jshint-stylish', { verbose: true }))
     .pipe($.jshint.reporter('fail'))
     .pipe($.jscs());
 });
@@ -65,7 +61,7 @@ gulp.task('plato', function(done) {
  */
 gulp.task('styles', ['clean-styles'], function() {
   log('Compiling ' + config.cssPreprocessor + ' --> CSS');
-
+  
   return gulp
     .src(config[config.cssPreprocessor])
     .pipe($.plumber()) // exit gracefully if something fails after this
@@ -98,15 +94,13 @@ gulp.task('images', ['clean-images'], function() {
 
   return gulp
     .src(config.images)
-    .pipe($.imagemin({
-      optimizationLevel: 4
-    }))
+    .pipe($.imagemin({ optimizationLevel: 4 }))
     .pipe(gulp.dest(config.build + 'images'));
 });
 
-// gulp.task('less-watcher', function() {
-//     gulp.watch([config[config.cssPreprocessor]], ['styles']);
-// });
+gulp.task('less-watcher', function() {
+  gulp.watch([config.less], ['styles']);
+});
 
 /**
  * Create $templateCache from the html templates
@@ -118,9 +112,7 @@ gulp.task('templatecache', ['clean-code'], function() {
   return gulp
     .src(config.htmltemplates)
     .pipe($.if(args.verbose, $.bytediff.start()))
-    .pipe($.minifyHtml({
-      empty: true
-    }))
+    .pipe($.minifyHtml({ empty: true }))
     .pipe($.if(args.verbose, $.bytediff.stop(bytediffFormatter)))
     .pipe($.angularTemplatecache(
       config.templateCache.file,
@@ -164,7 +156,7 @@ gulp.task('inject', ['wiredep', 'styles', 'templatecache'], function() {
  */
 gulp.task('serve-specs', ['build-specs'], function(done) {
   log('run the spec runner');
-  serve(true /* isDev */ , true /* specRunner */ );
+  serve(true /* isDev */, true /* specRunner */);
   done();
 });
 
@@ -222,9 +214,7 @@ gulp.task('build', ['optimize', 'images', 'fonts'], function() {
 gulp.task('optimize', ['inject', 'test'], function() {
   log('Optimizing the js, css, and html');
 
-  var assets = $.useref.assets({
-    searchPath: './'
-  });
+  var assets = $.useref.assets({ searchPath: './' });
   // Filters are named for the gulp-useref path
   var cssFilter = $.filter('**/*.css');
   var jsAppFilter = $.filter('**/' + config.optimized.app);
@@ -243,9 +233,7 @@ gulp.task('optimize', ['inject', 'test'], function() {
     .pipe(cssFilter.restore())
     // Get the custom javascript
     .pipe(jsAppFilter)
-    .pipe($.ngAnnotate({
-      add: true
-    }))
+    .pipe($.ngAnnotate({ add: true }))
     .pipe($.uglify())
     .pipe(getHeader())
     .pipe(jsAppFilter.restore())
@@ -321,7 +309,7 @@ gulp.task('clean-code', function(done) {
  * @return {Stream}
  */
 gulp.task('test', ['vet', 'templatecache'], function(done) {
-  startTests(true /*singleRun*/ , done);
+  startTests(true /*singleRun*/, done);
 });
 
 /**
@@ -331,7 +319,7 @@ gulp.task('test', ['vet', 'templatecache'], function(done) {
  *    gulp autotest --startServers
  */
 gulp.task('autotest', function(done) {
-  startTests(false /*singleRun*/ , done);
+  startTests(false /*singleRun*/, done);
 });
 
 /**
@@ -340,7 +328,7 @@ gulp.task('autotest', function(done) {
  * --nosync
  */
 gulp.task('serve-dev', ['inject'], function() {
-  serve(true /*isDev*/ );
+  serve(true /*isDev*/);
 });
 
 /**
@@ -349,7 +337,7 @@ gulp.task('serve-dev', ['inject'], function() {
  * --nosync
  */
 gulp.task('serve-build', ['build'], function() {
-  serve(false /*isDev*/ );
+  serve(false /*isDev*/);
 });
 
 /**
@@ -415,9 +403,7 @@ function clean(path, done) {
  * @returns {Stream}   The stream
  */
 function inject(src, label, order) {
-  var options = {
-    read: false
-  };
+  var options = { read: false };
   if (label) {
     options.name = 'inject:' + label;
   }
@@ -461,9 +447,7 @@ function serve(isDev, specRunner) {
       log('files changed:\n' + ev);
       setTimeout(function() {
         browserSync.notify('reloading now ...');
-        browserSync.reload({
-          stream: false
-        });
+        browserSync.reload({ stream: false });
       }, config.browserReloadDelay);
     })
     .on('start', function() {
@@ -569,9 +553,7 @@ function startPlatoVisualizer(done) {
     if (args.verbose) {
       log(overview.summary);
     }
-    if (done) {
-      done();
-    }
+    if (done) { done(); }
   }
 }
 
@@ -585,7 +567,7 @@ function startTests(singleRun, done) {
   var child;
   var excludeFiles = [];
   var fork = require('child_process').fork;
-  var karma = require('karma').server;
+  var Karma = require('karma').Server;
   var serverSpecs = config.serverIntegrationSpecs;
 
   if (args.startServers) {
@@ -600,11 +582,11 @@ function startTests(singleRun, done) {
     }
   }
 
-  karma.start({
+  new Karma({
     configFile: __dirname + '/karma.conf.js',
     exclude: excludeFiles,
     singleRun: !!singleRun
-  }, karmaCompleted);
+  }, karmaCompleted).start();
 
   ////////////////
 
@@ -680,7 +662,7 @@ function getHeader() {
  * Can pass in a string, object or array.
  */
 function log(msg) {
-  if (typeof(msg) === 'object') {
+  if (typeof (msg) === 'object') {
     for (var item in msg) {
       if (msg.hasOwnProperty(item)) {
         $.util.log($.util.colors.blue(msg[item]));

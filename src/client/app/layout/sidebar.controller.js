@@ -14,9 +14,7 @@
 
     activate();
 
-    function activate() {
-      getNavRoutes();
-    }
+    function activate() { getNavRoutes(); }
 
     function getNavRoutes() {
       vm.navRoutes = states.filter(function(r) {
