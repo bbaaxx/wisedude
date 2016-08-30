@@ -5,9 +5,9 @@
     .module('app.shefotest')
     .controller('ShefotestController', ShefotestController);
 
-  ShefotestController.$inject = ['logger', '$scope'];
+  ShefotestController.$inject = ['logger', '$scope', 'firebaseBackendService'];
   /* @ngInject */
-  function ShefotestController(logger, $scope) {
+  function ShefotestController(logger, $scope, firebaseBackendService) {
     var vm = this;
     vm.title = 'Shefotest';
 
@@ -48,6 +48,7 @@
     function activate() {
       logger.info('Activated Shefotest View');
       vm.doSubmit = doSubmit;
+
     }
 
     function doSubmit(form) {

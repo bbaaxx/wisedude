@@ -12,6 +12,7 @@
       'blocks.logger',
       'blocks.router',
       'blocks.geoloc',
+      'blocks.firebase-backend',
       'blocks.utils'
 
     ]);

@@ -32,7 +32,8 @@
     "angular-material": "^1.1.0",
     "angular-messages": "^1.5.8",
     "angular-aria": "^1.5.8",
-    "angular-schema-form": "^0.8.13"
+    "angular-schema-form": "^0.8.13",
+    "firebase": "^3.3.0"
   },
   "overrides": {
     "bootstrap": {
