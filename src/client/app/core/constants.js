@@ -1,4 +1,4 @@
-/* global toastr:false, moment:false, L:false */
+/* global toastr:false, moment:false, L:false, firebase:false */
 (function() {
   'use strict';
 
@@ -6,5 +6,6 @@
     .module('app.core')
     .constant('toastr', toastr)
     .constant('moment', moment)
+    .constant('firebase', firebase)
     .constant('leaflet', L);
 })();
