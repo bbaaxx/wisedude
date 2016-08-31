@@ -454,7 +454,7 @@ function serve(isDev, specRunner) {
       log('*** nodemon started');
       startBrowserSync(isDev, specRunner);
     })
-    .on('crash', function() {
+    .on('crash', function(er, or) {
       log('*** nodemon crashed: script crashed for some reason');
     })
     .on('exit', function() {
@@ -491,7 +491,6 @@ function startBrowserSync(isDev, specRunner) {
   }
 
   log('Starting BrowserSync on port ' + port);
-
   // If build: watches the files, builds, and restarts browser-sync.
   // If dev: watches less, compiles it to css, browser-sync handles reload
   if (isDev) {

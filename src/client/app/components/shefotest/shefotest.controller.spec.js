@@ -9,7 +9,10 @@ describe('ShefotestController', function() {
 
   beforeEach(function() {
     scope = $rootScope.$new();
-    controller = $controller('ShefotestController', {$scope:scope});
+    controller = $controller('ShefotestController', {
+      $scope: scope,
+      firebaseBackendService: {}
+    });
     $rootScope.$apply();
   });
 
