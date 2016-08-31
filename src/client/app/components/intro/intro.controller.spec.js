@@ -16,7 +16,7 @@ describe('IntroController', function() {
 
   describe('Intro controller', function() {
     it('should be created successfully', function() {
-      expect(controller).to.be.defined;
+      expect(controller).to.be.ok;
     });
 
     describe('after activate', function() {

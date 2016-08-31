@@ -11,8 +11,6 @@
     var vm = this;
     vm.title = 'Shefotest';
 
-    vm.doSubmit;
-
     vm.schema = {
       type: 'object',
       properties: {
