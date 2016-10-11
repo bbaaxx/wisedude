@@ -1,7 +1,8 @@
-<div ng-controller="ShellController as vm">
+<div ng-controller="ShellController as vm" id="application-shell-container">
 
-  <div ui-view class="shuffle-animation"></div>
+  <div ui-view id="primary-view-container" class="shuffle-animation"></div>
 
+  <!-- Busy overlay, my markup lives in shell.html template -->
   <div ngplus-overlay
     ngplus-overlay-delay-in="50"
     ngplus-overlay-delay-out="700"

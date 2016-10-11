@@ -11,7 +11,7 @@
     }
   </style>
   <title ng-bind="title">
-    wisedude
+    Wise Dude
   </title>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
@@ -23,6 +23,7 @@
   <link rel="stylesheet" href="/bower_components/leaflet/dist/leaflet.css" />
   <link rel="stylesheet" href="/bower_components/toastr/toastr.css" />
   <link rel="stylesheet" href="/bower_components/angular-material/angular-material.css" />
+  <link rel="stylesheet" href="/bower_components/json-formatter/dist/json-formatter.css" />
   <!-- endbower -->
   <!-- endbuild -->
 
@@ -34,18 +35,19 @@
 </head>
 
 <body>
-  <div>
-    <div ng-include="'app/layout/shell.html'"></div>
-    <!--<div id="splash-page" ng-show="showSplash">-->
-    <!--  <div class="page-splash">-->
-    <!--    <div class="page-splash-message">-->
-    <!--      wisedude-->
-    <!--    </div>-->
-    <!--    <div class="progress progress-striped active page-progress-bar">-->
-    <!--      <div class="bar"></div>-->
-    <!--    </div>-->
-    <!--  </div>-->
-    <!--</div>-->
+  <div id="outer-shell">
+
+    <!-- inject main app shell -->
+    <div ng-include="'app/layout/shell.html'" id="inner-shell"></div>
+
+    <!-- // Splash page begins -->
+    <div id="splash-page" ng-show="showSplash">
+     <div class="page-splash">
+       <md-progress-linear md-mode="indeterminate"></md-progress-linear>
+     </div>
+    </div>
+    <!-- // Splash page ends -->
+
   </div>
 
   <!-- build:js js/lib.js -->
@@ -68,34 +70,46 @@
   <script src="/bower_components/angular-schema-form/dist/schema-form.js"></script>
   <script src="/bower_components/angular-schema-form/dist/bootstrap-decorator.js"></script>
   <script src="/bower_components/firebase/firebase.js"></script>
+  <script src="/bower_components/angularbknd-sdk/dist/backand.min.js"></script>
+  <script src="/bower_components/json-formatter/dist/json-formatter.js"></script>
   <!-- endbower -->
   <!-- endbuild -->
 
   <!-- build:js js/app.js -->
   <!-- inject:js -->
   <script src="/src/client/app/app.module.js"></script>
+  <script src="/src/client/app/blocks/backand-dataservice/backand-dataservice.module.js"></script>
   <script src="/src/client/app/blocks/exception/exception.module.js"></script>
-  <script src="/src/client/app/blocks/firebase-backend/firebase-backend.module.js"></script>
+  <script src="/src/client/app/blocks/firebase-dataservice/firebase-dataservice.module.js"></script>
   <script src="/src/client/app/blocks/geoloc/geoloc.module.js"></script>
   <script src="/src/client/app/blocks/logger/logger.module.js"></script>
   <script src="/src/client/app/blocks/router/router.module.js"></script>
   <script src="/src/client/app/blocks/utils/utils.module.js"></script>
   <script src="/src/client/app/components/intro/intro.module.js"></script>
   <script src="/src/client/app/components/shefotest/shefotest.module.js"></script>
+  <script src="/src/client/app/components/signin/signin.module.js"></script>
   <script src="/src/client/app/core/core.module.js"></script>
   <script src="/src/client/app/layout/layout.module.js"></script>
   <script src="/src/client/app/widgets/widgets.module.js"></script>
+  <script src="/src/client/app/blocks/backand-dataservice/backand-dataservice.config.js"></script>
+  <script src="/src/client/app/blocks/backand-dataservice/backand-dataservice.constants.js"></script>
+  <script src="/src/client/app/blocks/backand-dataservice/backand-dataservice.js"></script>
   <script src="/src/client/app/blocks/exception/exception-handler.provider.js"></script>
   <script src="/src/client/app/blocks/exception/exception.js"></script>
-  <script src="/src/client/app/blocks/firebase-backend/firebase-backend.service.js"></script>
+  <script src="/src/client/app/blocks/firebase-dataservice/firebase-dataservice.config.js"></script>
+  <script src="/src/client/app/blocks/firebase-dataservice/firebase-dataservice.constants.js"></script>
+  <script src="/src/client/app/blocks/firebase-dataservice/firebase-dataservice.js"></script>
   <script src="/src/client/app/blocks/geoloc/geoloc.js"></script>
   <script src="/src/client/app/blocks/logger/logger.js"></script>
   <script src="/src/client/app/blocks/router/router-helper.provider.js"></script>
   <script src="/src/client/app/blocks/utils/utils.js"></script>
+  <script src="/src/client/app/components/intro/intro.constants.js"></script>
   <script src="/src/client/app/components/intro/intro.controller.js"></script>
   <script src="/src/client/app/components/intro/intro.route.js"></script>
   <script src="/src/client/app/components/shefotest/shefotest.controller.js"></script>
   <script src="/src/client/app/components/shefotest/shefotest.route.js"></script>
+  <script src="/src/client/app/components/signin/signin.controller.js"></script>
+  <script src="/src/client/app/components/signin/signin.route.js"></script>
   <script src="/src/client/app/core/config.js"></script>
   <script src="/src/client/app/core/constants.js"></script>
   <script src="/src/client/app/core/core.route.js"></script>

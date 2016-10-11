@@ -5,6 +5,7 @@
     'app.core',
     'app.layout',
     'app.intro',
+    'app.signin',
     'app.shefotest',
     'app.widgets'
   ]);

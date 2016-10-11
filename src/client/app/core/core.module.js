@@ -4,15 +4,16 @@
   angular
     .module('app.core', [
       'ngAnimate', 'ngSanitize', 'ngMaterial', 'ngplus',
-      'ui.router',
+      'ui.router', 'backand',
 
-      'schemaForm',
+      'schemaForm', 'jsonFormatter',
 
       'blocks.exception',
       'blocks.logger',
       'blocks.router',
       'blocks.geoloc',
-      'blocks.firebase-backend',
+      'blocks.firebase-dataservice',
+      'blocks.backand-dataservice',
       'blocks.utils'
 
     ]);

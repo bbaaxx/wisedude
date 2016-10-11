@@ -19,7 +19,7 @@
           url: '/',
           templateUrl: 'app/components/intro/intro.html',
           controller: 'IntroController',
-          controllerAs: 'vm',
+          controllerAs: 'vmNtr',
           title: 'Intro',
           settings: {
             nav: 2,
