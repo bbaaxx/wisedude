@@ -38,7 +38,6 @@ describe('SigninController', function() {
 
     describe('after activate', function() {
       it('should have title of Signin', function() {
-        console.log(controller.title);
         expect(controller.title).to.equal('Signin');
       });
 

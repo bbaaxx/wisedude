@@ -15,10 +15,10 @@
 <div class="header medium">
     <h1>Code coverage report for <span class="entity">app/components/signin/signin.controller.js</span></h1>
     <h2>
-        Statements: <span class="metric">60.61% <small>(20 / 33)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
-        Branches: <span class="metric">100% <small>(0 / 0)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
-        Functions: <span class="metric">33.33% <small>(3 / 9)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
-        Lines: <span class="metric">60.61% <small>(20 / 33)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Statements: <span class="metric">62.5% <small>(20 / 32)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">12.5% <small>(1 / 8)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">40% <small>(4 / 10)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">62.5% <small>(20 / 32)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
     </h2>
     <div class="path"><a href="../../../index.html">All files</a> &#187; <a href="index.html">app/components/signin/</a> &#187; signin.controller.js</div>
@@ -87,7 +87,20 @@
 60
 61
 62
-63</td><td class="line-coverage"><span class="cline-any cline-yes">1×</span>
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76</td><td class="line-coverage"><span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
@@ -117,26 +130,38 @@
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-yes">3×</span>
 <span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3×</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -144,6 +169,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -156,18 +182,18 @@
     .module('app.signin')
     .controller('SigninController', SigninController);
 &nbsp;
-  SigninController.$inject = ['$scope', 'logger', 'backandDataService', 'firebaseDataService'];
+  SigninController.$inject = ['$scope', 'logger', 'profileManagementService'];
   /* @ngInject */
-  function SigninController($scope, logger, backandDataService, firebaseDataService) {
+  function SigninController($scope, logger, profileManagementService) {
     var vmSgn = this;
-    var bckaDs = null;
-    var fbDs = null;
+    var bckaDs = void 0;
+    var fbDs = void 0;
 &nbsp;
     vmSgn.title = 'Signin';
 &nbsp;
     vmSgn.email = 'test@example.com';
     vmSgn.password = 'test123';
-    vmSgn.user = {};
+    vmSgn.user = void 0;
 &nbsp;
     vmSgn.doSignin = doSignin;
     vmSgn.doSignout = doSignout;
@@ -178,35 +204,48 @@
 &nbsp;
     function activate() {
       logger.info('Activated Signin View');
-      bckaDs = backandDataService;
-      fbDs = firebaseDataService;
+      profileManagementService
+        .getCurrentUser()
+        .then(function(currentUser) {
+          <span class="missing-if-branch" title="if path not taken" >I</span>if (currentUser) {
+<span class="cstat-no" title="statement not covered" >            vmSgn.user = currentUser;</span>
+          }
+        });
     }
 &nbsp;
-<span class="fstat-no" title="function not covered" >    function doSignin(formController) {</span>
-<span class="cstat-no" title="statement not covered" >      logger.info('formController', formController);</span>
-<span class="cstat-no" title="statement not covered" >      fbDs</span>
-        .signInWithEmailAndPassword(vmSgn.email, vmSgn.password)
+<span class="fstat-no" title="function not covered" >    function doSignin(signInMethod, formController) {</span>
+<span class="cstat-no" title="statement not covered" >      var signInSetup;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      profileManagementService</span>
+        .userSignIn({
+          provider: signInMethod,
+          email: vmSgn.email || '',
+          password: vmSgn.password || ''
+        })
         .then(<span class="fstat-no" title="function not covered" >function(user) {</span>
-<span class="cstat-no" title="statement not covered" >          logger.log('We have a user', user);</span>
+<span class="cstat-no" title="statement not covered" >          logger.success('We have a user', user);</span>
 <span class="cstat-no" title="statement not covered" >          vmSgn.user = user;</span>
-<span class="cstat-no" title="statement not covered" >          user.getToken().then(<span class="fstat-no" title="function not covered" >function(token) {</span></span>
-<span class="cstat-no" title="statement not covered" >            logger.log(token);</span>
-          });
-<span class="cstat-no" title="statement not covered" >          $scope.$apply();</span>
-<span class="cstat-no" title="statement not covered" >          logger.success('Logged user in');</span>
-        });
-    }
-<span class="fstat-no" title="function not covered" >    function doSignout() {</span>
-<span class="cstat-no" title="statement not covered" >      fbDs</span>
-        .signOutUser()
-        .then(<span class="fstat-no" title="function not covered" >function() {</span>
-<span class="cstat-no" title="statement not covered" >          logger.info('User signed out');</span>
-<span class="cstat-no" title="statement not covered" >          vmSgn.user = {};</span>
-<span class="cstat-no" title="statement not covered" >          $scope.$apply();</span>
         })
         .catch(<span class="fstat-no" title="function not covered" >function(e) {</span>
-<span class="cstat-no" title="statement not covered" >          logger.error('Error signin out?', e);</span>
+<span class="cstat-no" title="statement not covered" >          logger.error(e);</span>
         });
+&nbsp;
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function doSignout() {</span>
+      // Only sign out a user if there is no user signed in
+<span class="cstat-no" title="statement not covered" >      if (vmSgn.user) {</span>
+<span class="cstat-no" title="statement not covered" >        profileManagementService</span>
+          .userSignOut()
+          .then(<span class="fstat-no" title="function not covered" >function(user) {</span>
+<span class="cstat-no" title="statement not covered" >            logger.success('User signed out');</span>
+<span class="cstat-no" title="statement not covered" >            vmSgn.user = user;</span>
+<span class="cstat-no" title="statement not covered" >            $scope.$apply();</span>
+          })
+          .catch(<span class="fstat-no" title="function not covered" >function(e) {</span>
+<span class="cstat-no" title="statement not covered" >            logger.error(e);</span>
+          });
+      }
     }
 &nbsp;
   }
@@ -216,7 +255,7 @@
 
 </div>
 <div class="footer">
-    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Tue Oct 11 2016 04:09:53 GMT-0500 (CDT)</div>
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Tue Oct 11 2016 16:33:10 GMT-0500 (CDT)</div>
 </div>
 <script src="../../../prettify.js"></script>
 <script>

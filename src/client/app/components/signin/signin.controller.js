@@ -5,18 +5,18 @@
     .module('app.signin')
     .controller('SigninController', SigninController);
 
-  SigninController.$inject = ['$scope', 'logger', 'backandDataService', 'firebaseDataService'];
+  SigninController.$inject = ['$scope', 'logger', 'profileManagementService'];
   /* @ngInject */
-  function SigninController($scope, logger, backandDataService, firebaseDataService) {
+  function SigninController($scope, logger, profileManagementService) {
     var vmSgn = this;
-    var bckaDs = null;
-    var fbDs = null;
+    var bckaDs = void 0;
+    var fbDs = void 0;
 
     vmSgn.title = 'Signin';
 
     vmSgn.email = 'test@example.com';
     vmSgn.password = 'test123';
-    vmSgn.user = {};
+    vmSgn.user = void 0;
 
     vmSgn.doSignin = doSignin;
     vmSgn.doSignout = doSignout;
@@ -27,35 +27,48 @@
 
     function activate() {
       logger.info('Activated Signin View');
-      bckaDs = backandDataService;
-      fbDs = firebaseDataService;
+      profileManagementService
+        .getCurrentUser()
+        .then(function(currentUser) {
+          if (currentUser) {
+            vmSgn.user = currentUser;
+          }
+        });
     }
 
-    function doSignin(formController) {
-      logger.info('formController', formController);
-      fbDs
-        .signInWithEmailAndPassword(vmSgn.email, vmSgn.password)
+    function doSignin(signInMethod, formController) {
+      var signInSetup;
+
+      profileManagementService
+        .userSignIn({
+          provider: signInMethod,
+          email: vmSgn.email || '',
+          password: vmSgn.password || ''
+        })
         .then(function(user) {
-          logger.log('We have a user', user);
+          logger.success('We have a user', user);
           vmSgn.user = user;
-          user.getToken().then(function(token) {
-            logger.log(token);
-          });
-          $scope.$apply();
-          logger.success('Logged user in');
-        });
-    }
-    function doSignout() {
-      fbDs
-        .signOutUser()
-        .then(function() {
-          logger.info('User signed out');
-          vmSgn.user = {};
-          $scope.$apply();
         })
         .catch(function(e) {
-          logger.error('Error signin out?', e);
+          logger.error(e);
         });
+
+    }
+
+    function doSignout() {
+      // Only sign out a user if there is no user signed in
+      if (vmSgn.user) {
+        profileManagementService
+          .userSignOut()
+          .then(function(user) {
+            logger.success('User signed out');
+            vmSgn.user = user;
+            $scope.$apply();
+          })
+          .catch(function(e) {
+            logger.error(e);
+          });
+      }
     }
 
   }

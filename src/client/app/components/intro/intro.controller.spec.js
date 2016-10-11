@@ -37,7 +37,6 @@ describe('IntroController', function() {
 
     describe('after activate', function() {
       it('should have title of Intro', function() {
-        console.log(controller.title);
         expect(controller.title).to.equal('Intro');
       });
 

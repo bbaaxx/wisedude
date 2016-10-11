@@ -14,6 +14,7 @@
       'blocks.geoloc',
       'blocks.firebase-dataservice',
       'blocks.backand-dataservice',
+      'blocks.profile-management',
       'blocks.utils'
 
     ]);

@@ -3,7 +3,7 @@
 <div layout="column" class="md-inline-form" ng-cloak>
 
   <md-content md-theme="docs-dark" layout-gt-sm="row" layout-padding>
-    <form name="vmSgn.signinForm" ng-submit="vmSgn.doSignin(vmSgn.signinForm)">
+    <form name="vmSgn.signinForm" ng-submit="vmSgn.doSignin('password', vmSgn.signinForm)">
 
       <md-input-container>
         <ng-form name="emailField">
@@ -25,6 +25,9 @@
       </section>
 
     </form>
+    <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+      <md-button class="md-raised md-warn" ng-click="vmSgn.doSignin('google', vmSgn.signinForm)">Google Sign in</md-button>
+    </section>
   </md-content>
   <h4>User data</h4>
   <json-formatter json="vmSgn.signinForm"></json-formatter>
