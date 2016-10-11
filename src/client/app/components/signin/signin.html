@@ -1,0 +1,32 @@
+<h2>Sign in</h2>
+
+<div layout="column" class="md-inline-form" ng-cloak>
+
+  <md-content md-theme="docs-dark" layout-gt-sm="row" layout-padding>
+    <form name="vmSgn.signinForm" ng-submit="vmSgn.doSignin(vmSgn.signinForm)">
+
+      <md-input-container>
+        <ng-form name="emailField">
+          <label>Email</label>
+          <input ng-model="vmSgn.email" type="email">
+        </ng-form>
+      </md-input-container>
+
+      <md-input-container>
+        <ng-form name="passwordField">
+          <label>Password</label>
+          <input ng-model="vmSgn.password" type="password">
+        </ng-form>
+      </md-input-container>
+
+      <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+        <md-button class="md-raised md-primary" type="submit">Sign in</md-button>
+        <md-button class="md-raised md-warn" ng-click="vmSgn.doSignout()">Sign out</md-button>
+      </section>
+
+    </form>
+  </md-content>
+  <h4>User data</h4>
+  <json-formatter json="vmSgn.signinForm"></json-formatter>
+  {{vmSgn.user | json}}
+</div>

@@ -4,10 +4,26 @@ describe('IntroController', function() {
 
   beforeEach(function() {
     bard.appModule('app.intro');
-    bard.inject('$controller', '$log', '$rootScope');
+    bard.inject(
+      '$controller', '$log', '$q',
+      '$rootScope', 'backandDataService',
+      'firebaseDataService'
+    );
   });
 
   beforeEach(function() {
+
+    bard.mockService(backandDataService, {
+      getList: $q.when({
+        data: { data: 'data'}
+      }),
+      _default: $q.when([])
+    });
+    bard.mockService(firebaseDataService, {
+      somestuff: $q.when({}),
+      _default: $q.when([])
+    });
+
     controller = $controller('IntroController');
     $rootScope.$apply();
   });
@@ -21,6 +37,7 @@ describe('IntroController', function() {
 
     describe('after activate', function() {
       it('should have title of Intro', function() {
+        console.log(controller.title);
         expect(controller.title).to.equal('Intro');
       });
 

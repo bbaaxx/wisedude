@@ -27,11 +27,28 @@ module.exports = function(config) {
     // possible values: 'dots', 'progress', 'coverage'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
     // reporters: ['progress', 'coverage'],
-    reporters: ['spec', 'coverage'],
+    reporters: ['spec', 'coverage', 'html', 'htmlDetailed'],
 
     coverageReporter: {
       dir: gulpConfig.karma.coverage.dir,
       reporters: gulpConfig.karma.coverage.reporters
+    },
+    htmlReporter: {
+      outputDir: gulpConfig.report, // where to put the reports
+      templatePath: null, // set if you moved jasmine_template.html
+      focusOnFailures: true, // reports show failures on start
+      namedFiles: false, // name files instead of creating sub-directories
+      pageTitle: null, // page title for reports; browser info by default
+      urlFriendlyName: false, // simply replaces spaces with _ for files/dirs
+      reportName: 'karma_html', // report summary filename; browser info by default
+
+      // experimental
+      preserveDescribeNesting: false, // folded suites stay folded
+      foldAll: false, // reports start folded (only with preserveDescribeNesting)
+    },
+    htmlDetailed: {
+      splitResults: false,
+      dir: gulpConfig.report + 'karma_detailed_html'
     },
 
     // web server port
