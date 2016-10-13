@@ -16,6 +16,7 @@
       {
         state: 'intro',
         config: {
+          resolve: getResolves(),
           url: '/',
           templateUrl: 'app/components/intro/intro.html',
           controller: 'IntroController',
@@ -28,5 +29,21 @@
         }
       }
     ];
+  }
+
+  function getResolves() {
+    return {
+      authStatus: [
+        '$state',
+        'profileManagementService',
+        function ($state, profileManagementService) {
+          return profileManagementService
+            .getCurrentUser()
+            .catch(function(e) {
+              $state.go('signin')
+            });
+        }
+      ]
+    };
   }
 })();

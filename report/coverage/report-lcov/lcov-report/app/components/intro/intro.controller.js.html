@@ -12,13 +12,13 @@
     </style>
 </head>
 <body>
-<div class="header medium">
+<div class="header low">
     <h1>Code coverage report for <span class="entity">app/components/intro/intro.controller.js</span></h1>
     <h2>
-        Statements: <span class="metric">65.22% <small>(15 / 23)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Statements: <span class="metric">38.89% <small>(7 / 18)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         Branches: <span class="metric">0% <small>(0 / 4)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
-        Functions: <span class="metric">50% <small>(3 / 6)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
-        Lines: <span class="metric">65.22% <small>(15 / 23)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">20% <small>(1 / 5)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">38.89% <small>(7 / 18)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
     </h2>
     <div class="path"><a href="../../../index.html">All files</a> &#187; <a href="index.html">app/components/intro/</a> &#187; intro.controller.js</div>
@@ -61,32 +61,7 @@
 34
 35
 36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
-51
-52
-53
-54
-55
-56
-57
-58
-59
-60
-61
-62</td><td class="line-coverage"><span class="cline-any cline-yes">1×</span>
+37</td><td class="line-coverage"><span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
@@ -96,35 +71,10 @@
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-yes">3×</span>
-<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3×</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3×</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-yes">3×</span>
-<span class="cline-any cline-yes">3×</span>
-<span class="cline-any cline-yes">3×</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -154,41 +104,16 @@
     .module('app.intro')
     .controller('IntroController', IntroController);
 &nbsp;
-  IntroController.$inject = ['logger', 'backandDataService', 'firebaseDataService', 'COLORS'];
+  IntroController.$inject = ['logger', 'authStatus', 'profileManagementService', 'COLORS'];
   /* @ngInject */
-  function IntroController(logger, backandDataService, firebaseDataService, COLORS) {
-    var vmNtr = this;
-    vmNtr.title = 'Intro';
+<span class="fstat-no" title="function not covered" >  function IntroController(logger, authStatus, profileManagementService, COLORS) {</span>
+<span class="cstat-no" title="statement not covered" >    var vmNtr = this;</span>
+<span class="cstat-no" title="statement not covered" >    vmNtr.title = 'Intro';</span>
 &nbsp;
-    vmNtr.doThat = doThat;
+<span class="cstat-no" title="statement not covered" >    activate();</span>
 &nbsp;
-    activate();
-&nbsp;
-    function activate() {
-      logger.info('Activated Intro View');
-      var bckaDs = backandDataService;
-      var fbDs = firebaseDataService;
-&nbsp;
-      // bckaDs.getList('primitives')
-      // .then(function(data) {
-      //   console.log('primitives', data.data.data);
-      // });
-      // bckaDs.getList('reversePrimitives')
-      // .then(function(data) {
-      //   console.log('reversePrimitives', data.data.data);
-      // });
-&nbsp;
-      // $http.get('https://api.imgur.com/3/g/memes/', {
-      //   // cs: cf99132c9bc533eaafaea8301dbaf441e79a6cf0
-      //   headers: {
-      //     'Authorization': 'Client-ID 23b1c3a31e3a3d5'
-      //   }
-      // })
-&nbsp;
-    }
-&nbsp;
-<span class="fstat-no" title="function not covered" >    function doThat() {</span>
-<span class="cstat-no" title="statement not covered" >      logger.success('I pass');</span>
+<span class="fstat-no" title="function not covered" >    function activate() {</span>
+<span class="cstat-no" title="statement not covered" >      logger.info('Activated Intro View');</span>
     }
 &nbsp;
 <span class="fstat-no" title="function not covered" >    function randomColor() {</span>
@@ -213,7 +138,7 @@
 
 </div>
 <div class="footer">
-    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Tue Oct 11 2016 16:33:10 GMT-0500 (CDT)</div>
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Wed Oct 12 2016 11:37:55 GMT-0500 (CDT)</div>
 </div>
 <script src="../../../prettify.js"></script>
 <script>

@@ -1,12 +1,18 @@
 <div ng-controller="ShellController as vm" id="application-shell-container">
 
+  <wd-header-toolbar title="{{title}}" current-user="currentUser"></wd-header-toolbar>
+
   <div ui-view id="primary-view-container" class="shuffle-animation"></div>
 
+  <footer>
+    <div class="">
+      Footer
+      <span class="icon-search"></span>
+    </div>
+  </footer>
+
   <!-- Busy overlay, my markup lives in shell.html template -->
-  <div ngplus-overlay
-    ngplus-overlay-delay-in="50"
-    ngplus-overlay-delay-out="700"
-    ngplus-overlay-animation="dissolve-animation">
+  <div ngplus-overlay ngplus-overlay-delay-in="50" ngplus-overlay-delay-out="700" ngplus-overlay-animation="dissolve-animation">
     <img src="images/busy.gif"/>
     <div class="page-spinner-message overlay-message">{{vm.busyMessage}}</div>
   </div>

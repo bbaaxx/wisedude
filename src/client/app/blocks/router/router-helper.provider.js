@@ -26,9 +26,16 @@
     };
 
     this.$get = RouterHelper;
-    RouterHelper.$inject = ['$location', '$rootScope', '$state', 'logger'];
+
+    //////////
+
+    RouterHelper.$inject = [
+      '$location', '$rootScope', '$state', 'profileManagementService','logger'
+    ];
     /* @ngInject */
-    function RouterHelper($location, $rootScope, $state, logger) {
+    function RouterHelper(
+      $location, $rootScope, $state, profileManagementService, logger
+    ) {
       var handlingStateChangeError = false;
       var hasOtherwise = false;
       var stateCounts = {
@@ -47,6 +54,15 @@
       return service;
 
       ///////////////
+
+      function init() {
+        handleRoutingErrors();
+        updateAppwideState();
+      }
+
+      function getStates() {
+        return $state.get();
+      }
 
       function configureStates(states, otherwisePath) {
         states.forEach(function(state) {
@@ -72,7 +88,7 @@
             stateCounts.errors++;
             handlingStateChangeError = true;
             var destination = (toState &&
-              (toState.title || toState.name || toState.loadedTemplateUrl)) ||
+                (toState.title || toState.name || toState.loadedTemplateUrl)) ||
               'unknown target';
             var msg = 'Error routing to ' + destination + '. ' +
               (error.data || '') + '. <br/>' + (error.statusText || '') +
@@ -83,20 +99,28 @@
         );
       }
 
-      function init() {
-        handleRoutingErrors();
-        updateDocTitle();
-      }
-
-      function getStates() { return $state.get(); }
-
-      function updateDocTitle() {
+      function updateAppwideState() {
         $rootScope.$on('$stateChangeSuccess',
           function(event, toState, toParams, fromState, fromParams) {
+
+            // Handle counter and errors
             stateCounts.changes++;
             handlingStateChangeError = false;
+
+            // Set title from state settings
             var title = config.docTitle + ' ' + (toState.title || '');
             $rootScope.title = title; // data bind to <title>
+
+            profileManagementService
+              .getCurrentUser()
+              .then(function(user) {
+                $rootScope.currentUser = user;
+                // $rootScope.$broadcast()
+              })
+              .catch(function(e) {
+                $rootScope.currentUser = void 0;
+              });
+
           }
         );
       }

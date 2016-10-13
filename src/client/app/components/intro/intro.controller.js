@@ -5,41 +5,16 @@
     .module('app.intro')
     .controller('IntroController', IntroController);
 
-  IntroController.$inject = ['logger', 'backandDataService', 'firebaseDataService', 'COLORS'];
+  IntroController.$inject = ['logger', 'authStatus', 'profileManagementService', 'COLORS'];
   /* @ngInject */
-  function IntroController(logger, backandDataService, firebaseDataService, COLORS) {
+  function IntroController(logger, authStatus, profileManagementService, COLORS) {
     var vmNtr = this;
     vmNtr.title = 'Intro';
-
-    vmNtr.doThat = doThat;
 
     activate();
 
     function activate() {
       logger.info('Activated Intro View');
-      var bckaDs = backandDataService;
-      var fbDs = firebaseDataService;
-
-      // bckaDs.getList('primitives')
-      // .then(function(data) {
-      //   console.log('primitives', data.data.data);
-      // });
-      // bckaDs.getList('reversePrimitives')
-      // .then(function(data) {
-      //   console.log('reversePrimitives', data.data.data);
-      // });
-
-      // $http.get('https://api.imgur.com/3/g/memes/', {
-      //   // cs: cf99132c9bc533eaafaea8301dbaf441e79a6cf0
-      //   headers: {
-      //     'Authorization': 'Client-ID 23b1c3a31e3a3d5'
-      //   }
-      // })
-
-    }
-
-    function doThat() {
-      logger.success('I pass');
     }
 
     function randomColor() {

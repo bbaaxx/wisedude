@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Code coverage report for app/core/dataservice.js</title>
+    <title>Code coverage report for app/widgets/wd-header-toolbar.directive.js</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="../../prettify.css">
     <link rel="stylesheet" href="../../base.css">
@@ -13,15 +13,15 @@
 </head>
 <body>
 <div class="header medium">
-    <h1>Code coverage report for <span class="entity">app/core/dataservice.js</span></h1>
+    <h1>Code coverage report for <span class="entity">app/widgets/wd-header-toolbar.directive.js</span></h1>
     <h2>
-        Statements: <span class="metric">71.43% <small>(10 / 14)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Statements: <span class="metric">66.67% <small>(4 / 6)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         Branches: <span class="metric">100% <small>(0 / 0)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
-        Functions: <span class="metric">33.33% <small>(2 / 6)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
-        Lines: <span class="metric">76.92% <small>(10 / 13)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">33.33% <small>(1 / 3)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">66.67% <small>(4 / 6)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
     </h2>
-    <div class="path"><a href="../../index.html">All files</a> &#187; <a href="index.html">app/core/</a> &#187; dataservice.js</div>
+    <div class="path"><a href="../../index.html">All files</a> &#187; <a href="index.html">app/widgets/</a> &#187; wd-header-toolbar.directive.js</div>
 </div>
 <div class="body">
 <pre><table class="coverage">
@@ -58,37 +58,35 @@
 31
 32
 33
-34
-35</td><td class="line-coverage"><span class="cline-any cline-yes">1×</span>
+34</td><td class="line-coverage"><span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-yes">3×</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -97,33 +95,32 @@
   'use strict';
 &nbsp;
   angular
-    .module('app.core')
-    .factory('dataservice', dataservice);
+    .module('app.widgets')
+    .directive('wdHeaderToolbar', wdHeaderToolbar);
 &nbsp;
-  dataservice.$inject = ['$http', '$q', 'exception', 'logger'];
   /* @ngInject */
-  function dataservice($http, $q, exception, logger) {
-    var service = {
-      getPeople: getPeople,
-      getMessageCount: getMessageCount
+<span class="fstat-no" title="function not covered" >  function wdHeaderToolbar() {</span>
+    //Usage:
+    //&lt;div wd-header-toolbar title="{{vm.title}}"&gt;&lt;/div&gt;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    var directive = {</span>
+      scope: {
+        'title': '@',
+        'currentUser': '='
+      },
+      templateUrl: 'app/widgets/ws-header-toolbar.html',
+      restrict: 'EA',
+      link: link
     };
+<span class="cstat-no" title="statement not covered" >    return directive;</span>
 &nbsp;
-    return service;
-&nbsp;
-<span class="fstat-no" title="function not covered" >    function getMessageCount() {</span> <span class="cstat-no" title="statement not covered" >return $q.when(72); </span>}
-&nbsp;
-<span class="fstat-no" title="function not covered" >    function getPeople() {</span>
-<span class="cstat-no" title="statement not covered" >      return $http.get('/api/people')</span>
-        .then(success)
-        .catch(fail);
-&nbsp;
-<span class="fstat-no" title="function not covered" >      function success(response) {</span>
-<span class="cstat-no" title="statement not covered" >        return response.data;</span>
-      }
-&nbsp;
-<span class="fstat-no" title="function not covered" >      function fail(e) {</span>
-<span class="cstat-no" title="statement not covered" >        return exception.catcher('XHR Failed for getPeople')(e);</span>
-      }
+<span class="fstat-no" title="function not covered" >    function link(scope, element, attr) {</span>
+      // scope.toggleContent = function() {
+      //   if (scope.allowCollapse === 'true') {
+      //     var content = angular.element(element).siblings('.widget-content');
+      //     content.toggle();
+      //   }
+      // };
     }
   }
 })();

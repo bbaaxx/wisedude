@@ -85,6 +85,14 @@ gulp.task('fonts', ['clean-fonts'], function() {
     .pipe(gulp.dest(config.build + 'fonts'));
 });
 
+gulp.task('dev-fonts', ['clean-fonts'], function() {
+  log('Copying fonts');
+
+  return gulp
+    .src(config.fonts)
+    .pipe(gulp.dest(config.temp + 'fonts'));
+});
+
 /**
  * Compress images
  * @return {Stream}
@@ -327,7 +335,7 @@ gulp.task('autotest', function(done) {
  * --debug-brk or --debug
  * --nosync
  */
-gulp.task('serve-dev', ['inject'], function() {
+gulp.task('serve-dev', ['inject', 'dev-fonts'], function() {
   serve(true /*isDev*/);
 });
 

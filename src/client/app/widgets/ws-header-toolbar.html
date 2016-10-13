@@ -1,0 +1,23 @@
+<md-toolbar>
+
+  <div class="md-toolbar-tools">
+    <md-button class="md-icon-button" aria-label="Home" href="/">
+      <md-icon md-font-icon="fa-home"></md-icon>
+    </md-button>
+
+    <h1>
+      {{title}}
+      <span ng-if="currentUser.displayName" ng-bind="currentUser.displayName"></span>
+    </h1>
+
+
+    <!-- expand this span to align right the next set of buttons -->
+    <span flex></span>
+
+    <md-button class="md-icon-button" aria-label="Sign in" href="/signin">
+      <md-icon md-font-icon="fa-sign-in"></md-icon>
+      <!-- <md-icon md-svg-icon="img/icons/more_vert.svg"></md-icon> -->
+    </md-button>
+  </div>
+
+</md-toolbar>

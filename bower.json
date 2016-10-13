@@ -23,7 +23,7 @@
     "angular-sanitize": "^1.5.8",
     "angular-ui-router": "^0.3.1",
     "extras.angular.plus": "^0.9.2",
-    "font-awesome": "^4.5.0",
+    "font-awesome": "^4.6.3",
     "jquery": "^2.2.2",
     "leaflet": "~0.7.5",
     "moment": "^2.13.0",

@@ -84,7 +84,7 @@
     }
 
     function getCurrentUser() {
-      return $q.when(currentUser);
+      return firebaseDataService.getCurrentUser();
     }
 
   }

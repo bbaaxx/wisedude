@@ -4,17 +4,6 @@
   var core = angular.module('app.core');
 
   /**
-   * Toastr configuration
-   */
-  core.config(toastrConfig);
-  toastrConfig.$inject = ['toastr'];
-  /* @ngInject */
-  function toastrConfig(toastr) {
-    toastr.options.timeOut = 4000;
-    toastr.options.positionClass = 'toast-bottom-right';
-  }
-
-  /**
    * Global configuration
    */
 
@@ -23,37 +12,56 @@
    * insertable as a value
    * @type {Object}
    */
-  var config = {
-    appErrorPrefix: '[wisedude Hiccup] ',
+  var baseConfig = {
+    appErrorPrefix: '[Wisedude Hiccup] ',
     appTitle: 'Wisedude'
   };
 
-  core.value('config', config);
-  core.config(configure);
-  configure.$inject = ['$logProvider', 'routerHelperProvider', 'exceptionHandlerProvider'];
+  core.value('config', baseConfig);
 
+  // Configure global settings
+  core.config(configureApp);
+
+  configureApp.$inject = ['$logProvider', 'routerHelperProvider', 'exceptionHandlerProvider'];
   /* @ngInject */
-  function configure($logProvider, routerHelperProvider, exceptionHandlerProvider) {
+  function configureApp($logProvider, routerHelperProvider, exceptionHandlerProvider) {
     if ($logProvider.debugEnabled) {
       $logProvider.debugEnabled(true);
     }
-    exceptionHandlerProvider.configure(config.appErrorPrefix);
+    exceptionHandlerProvider.configure(baseConfig.appErrorPrefix);
     routerHelperProvider.configure({
-      docTitle: config.appTitle + ': '
+      // docTitle: config.appTitle + ': '
+      docTitle: ''
     });
   }
 
-  // Angular material theming provider
+  // Angular material config provider
   // TODO: this should be moved to its own file
   core.config(ngMaterialThemes);
 
-  ngMaterialThemes.$inject = ['$mdThemingProvider'];
+  ngMaterialThemes.$inject = ['$mdThemingProvider', '$mdIconProvider'];
 
-  function ngMaterialThemes($mdThemingProvider) {
+  function ngMaterialThemes($mdThemingProvider, $mdIconProvider) {
     // Configure a dark theme with primary foreground yellow
     $mdThemingProvider.theme('docs-dark', 'default')
-    .primaryPalette('yellow')
-    .dark();
+      .primaryPalette('yellow')
+      .dark();
+
+    $mdIconProvider
+      .defaultFontSet('fa'); // This sets our default fontset className.
   }
+
+
+  /**
+   * Toastr configuration
+   */
+  core.config(toastrConfig);
+  toastrConfig.$inject = ['toastr'];
+  /* @ngInject */
+  function toastrConfig(toastr) {
+    toastr.options.timeOut = 2000;
+    toastr.options.positionClass = 'toast-bottom-right';
+  }
+
 
 })();

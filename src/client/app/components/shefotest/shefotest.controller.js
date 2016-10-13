@@ -5,9 +5,9 @@
     .module('app.shefotest')
     .controller('ShefotestController', ShefotestController);
 
-  ShefotestController.$inject = ['logger', '$scope', 'firebaseBackendService'];
+  ShefotestController.$inject = ['logger', '$scope'];
   /* @ngInject */
-  function ShefotestController(logger, $scope, firebaseBackendService) {
+  function ShefotestController(logger, $scope) {
     var vm = this;
     vm.title = 'Shefotest';
 
