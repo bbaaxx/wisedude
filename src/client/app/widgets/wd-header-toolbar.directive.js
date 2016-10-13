@@ -15,7 +15,6 @@
       templateUrl: 'app/widgets/ws-header-toolbar.html',
       restrict: 'EA',
       controller: controller,
-      controllerAs: 'vmWht'
     };
     return directive;
 
@@ -23,7 +22,7 @@
 
     /* @ngInject */
     function controller($scope, authService) {
-      this.signout = authService.userSignOut;
+      $scope.signout = authService.userSignOut;
     }
   }
 })();

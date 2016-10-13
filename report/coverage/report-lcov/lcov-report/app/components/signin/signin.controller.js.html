@@ -15,10 +15,10 @@
 <div class="header medium">
     <h1>Code coverage report for <span class="entity">app/components/signin/signin.controller.js</span></h1>
     <h2>
-        Statements: <span class="metric">65.63% <small>(21 / 32)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
-        Branches: <span class="metric">12.5% <small>(1 / 8)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Statements: <span class="metric">69.7% <small>(23 / 33)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">0% <small>(0 / 6)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         Functions: <span class="metric">40% <small>(4 / 10)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
-        Lines: <span class="metric">65.63% <small>(21 / 32)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">69.7% <small>(23 / 33)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
     </h2>
     <div class="path"><a href="../../../index.html">All files</a> &#187; <a href="index.html">app/components/signin/</a> &#187; signin.controller.js</div>
@@ -98,9 +98,7 @@
 71
 72
 73
-74
-75
-76</td><td class="line-coverage"><span class="cline-any cline-yes">1×</span>
+74</td><td class="line-coverage"><span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
@@ -119,7 +117,9 @@
 <span class="cline-any cline-yes">3×</span>
 <span class="cline-any cline-yes">3×</span>
 <span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
 <span class="cline-any cline-yes">3×</span>
 <span class="cline-any cline-yes">3×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -130,11 +130,7 @@
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-yes">3×</span>
 <span class="cline-any cline-yes">3×</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3×</span>
-<span class="cline-any cline-yes">3×</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -146,10 +142,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -171,6 +163,10 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -182,9 +178,9 @@
     .module('app.signin')
     .controller('SigninController', SigninController);
 &nbsp;
-  SigninController.$inject = ['$scope', 'logger', 'profileManagementService'];
+  SigninController.$inject = ['$scope', 'logger', 'authService'];
   /* @ngInject */
-  function SigninController($scope, logger, profileManagementService) {
+  function SigninController($scope, logger, authService) {
     var vmSgn = this;
     var bckaDs = void 0;
     var fbDs = void 0;
@@ -194,9 +190,11 @@
     vmSgn.email = 'test@example.com';
     vmSgn.password = 'test123';
     vmSgn.user = void 0;
+    vmSgn.formVisible = false;
 &nbsp;
     vmSgn.doSignin = doSignin;
     vmSgn.doSignout = doSignout;
+    vmSgn.showForm = showForm;
 &nbsp;
     activate();
 &nbsp;
@@ -204,27 +202,19 @@
 &nbsp;
     function activate() {
       logger.info('Activated Signin View');
-      profileManagementService
-        .getCurrentUser()
-        .then(function(currentUser) {
-          <span class="missing-if-branch" title="else path not taken" >E</span>if (currentUser) {
-            vmSgn.user = currentUser;
-          }
-        });
+      $scope.$on('authStateUpdate', function(evt, data) {
+        vmSgn.user = data;
+      });
     }
 &nbsp;
 <span class="fstat-no" title="function not covered" >    function doSignin(signInMethod, formController) {</span>
 <span class="cstat-no" title="statement not covered" >      var signInSetup;</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >      profileManagementService</span>
+<span class="cstat-no" title="statement not covered" >      authService</span>
         .userSignIn({
           provider: signInMethod,
           email: vmSgn.email || '',
           password: vmSgn.password || ''
-        })
-        .then(<span class="fstat-no" title="function not covered" >function(user) {</span>
-<span class="cstat-no" title="statement not covered" >          logger.success('We have a user', user);</span>
-<span class="cstat-no" title="statement not covered" >          vmSgn.user = user;</span>
         })
         .catch(<span class="fstat-no" title="function not covered" >function(e) {</span>
 <span class="cstat-no" title="statement not covered" >          logger.error(e);</span>
@@ -235,7 +225,7 @@
 <span class="fstat-no" title="function not covered" >    function doSignout() {</span>
       // Only sign out a user if there is no user signed in
 <span class="cstat-no" title="statement not covered" >      if (vmSgn.user) {</span>
-<span class="cstat-no" title="statement not covered" >        profileManagementService</span>
+<span class="cstat-no" title="statement not covered" >        authService</span>
           .userSignOut()
           .then(<span class="fstat-no" title="function not covered" >function(user) {</span>
 <span class="cstat-no" title="statement not covered" >            logger.success('User signed out');</span>
@@ -248,6 +238,10 @@
       }
     }
 &nbsp;
+<span class="fstat-no" title="function not covered" >    function showForm(shouldWe) {</span>
+<span class="cstat-no" title="statement not covered" >      vmSgn.formVisible = shouldWe;</span>
+    }
+&nbsp;
   }
 })();
 &nbsp;</pre></td></tr>
@@ -255,7 +249,7 @@
 
 </div>
 <div class="footer">
-    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Oct 13 2016 01:11:23 GMT-0500 (CDT)</div>
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Oct 13 2016 03:51:49 GMT-0500 (CDT)</div>
 </div>
 <script src="../../../prettify.js"></script>
 <script>

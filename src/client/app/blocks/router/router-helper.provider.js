@@ -85,18 +85,15 @@
               event.preventDefault();
               logger.info('Checking authentication');
               authService.asyncCheckIfSignedIn()
-                .then(authCheckPass)
-                .catch(authCheckFails);
-              function authCheckPass() {
-                fromParams.skipAuthCheck = true;
-                $state.go(toState.name, toParams);
-              }
-              function authCheckFails() {
-                $state.go('signin', toParams);
-              }
+                .then(function() {
+                  fromParams.skipAuthCheck = true;
+                  $state.go(toState.name, toParams);
+                })
+                .catch(function() {
+                  $state.go('signin', toParams);
+                });
             }
-
-          })
+          });
       }
 
       function updateAppwideState() {

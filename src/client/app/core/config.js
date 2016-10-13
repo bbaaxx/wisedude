@@ -51,7 +51,6 @@
       .defaultFontSet('fa'); // This sets our default fontset className.
   }
 
-
   /**
    * Toastr configuration
    */
@@ -62,6 +61,5 @@
     toastr.options.timeOut = 2000;
     toastr.options.positionClass = 'toast-bottom-right';
   }
-
 
 })();

@@ -31,7 +31,7 @@
         getCurrentUser: getCurrentUser,
         checkIfSignedIn: checkIfSignedIn,
         asyncCheckIfSignedIn: asyncCheckIfSignedIn
-      }
+      };
 
       init();
 
@@ -135,7 +135,7 @@
           })
           .catch(function(e) {
             return $q.reject(false);
-          })
+          });
       }
 
       function getCurrentUser() {

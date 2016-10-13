@@ -66,7 +66,7 @@
 
       function authChgObserver(user) {
         if (user) {
-          deferred.resolve(user)
+          deferred.resolve(user);
         } else {
           deferred.reject('User is not signed in');
         }

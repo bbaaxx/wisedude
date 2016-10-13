@@ -10,7 +10,6 @@
   /* @ngInject */
   function profileManagementService($q, firebaseDataService, backandDataService) {
 
-
     var service = {
 
     };
@@ -18,8 +17,6 @@
     return service;
 
     ////////////////////
-
-
 
   }
 }());
