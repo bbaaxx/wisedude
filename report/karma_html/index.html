@@ -93,20 +93,17 @@ body { background-color: #eeeeee; padding: 0; margin: 5px; overflow-y: scroll; }
 </style>
 </head>
 
-<body id="HTMLReporter" class="html-reporter showDetails">
-<h1>Tested in PhantomJS 2.1.1 (Linux 0.0.0) on Wed Oct 12 2016</h1>
+<body id="HTMLReporter" class="html-reporter">
+<h1>Tested in PhantomJS 2.1.1 (Linux 0.0.0) on Thu Oct 13 2016</h1>
 
 <div class="alert">
 
 
-<!-- <span class="failingAlert bar">Failed 1 specs</span> -->
-<span class="failingAlert bar"><span class="fold-buttons"><a href="#" onclick="fold();">Fold</a> | 
-  <a href="#" onclick="unfold();">Unfold</a></span>33 specs, 1 failed, 0 pending</span>
-<span class="resultsMenu bar">
-<a class="summaryMenuItem" onclick="showSummary();" href="#">Spec List<a>|<a 
-   class="detailsMenuItem" onclick="showFailures();" href="#">Failures</a>
-</span>
 
+  
+  <span class="passingAlert bar"><span class="fold-buttons"><a href="#" onclick="fold();">Fold</a> | 
+  <a href="#" onclick="unfold();">Unfold</a></span>33 specs, 0 failed, 0 pending</span>
+  
 
 
 </div>
@@ -159,11 +156,24 @@ body { background-color: #eeeeee; padding: 0; margin: 5px; overflow-y: scroll; }
     
     </div>
   
-    <div class="suite failed">
-      <span class="description">IntroController</span>
+    <div class="suite passed">
+      <span class="description">IntroController Intro controller</span>
     
-      <div class="specSummary failed">
-      <span class="description">&quot;before each&quot; hook for &quot;should be created successfully&quot;</span>
+      <div class="specSummary passed">
+      <span class="description">should be created successfully</span>
+      </div>
+    
+    </div>
+  
+    <div class="suite passed">
+      <span class="description">IntroController Intro controller after activate</span>
+    
+      <div class="specSummary passed">
+      <span class="description">should have title of Intro</span>
+      </div>
+    
+      <div class="specSummary passed">
+      <span class="description">should have logged &quot;Activated&quot;</span>
       </div>
     
     </div>
@@ -306,25 +316,6 @@ body { background-color: #eeeeee; padding: 0; margin: 5px; overflow-y: scroll; }
 
 <div id="details">
   
-  
-  <div class="specDetail failed">
-    <span class="description">IntroController &quot;before each&quot; hook for &quot;should be created successfully&quot;</span>
-    <div class="stackTrace">
-      <div class="resultMessage">[$injector:unpr] Unknown provider: authStatusProvider &lt;- authStatus &lt;- IntroController
-http://errors.angularjs.org/1.5.8/$injector/unpr?p0=authStatusProvider%20%3C-%20authStatus%20%3C-%20IntroController
-http://localhost:9876/base/bower_components/angular/angular.js?97675784c569203f630eef706dfd0570d8c4071b:4511:86
-getService@http://localhost:9876/base/bower_components/angular/angular.js?97675784c569203f630eef706dfd0570d8c4071b:4664:46
-http://localhost:9876/base/bower_components/angular/angular.js?97675784c569203f630eef706dfd0570d8c4071b:4516:48
-getService@http://localhost:9876/base/bower_components/angular/angular.js?97675784c569203f630eef706dfd0570d8c4071b:4664:46
-injectionArgs@http://localhost:9876/base/bower_components/angular/angular.js?97675784c569203f630eef706dfd0570d8c4071b:4688:68
-instantiate@http://localhost:9876/base/bower_components/angular/angular.js?97675784c569203f630eef706dfd0570d8c4071b:4730:31
-$controller@http://localhost:9876/base/bower_components/angular/angular.js?97675784c569203f630eef706dfd0570d8c4071b:10369:39
-http://localhost:9876/base/bower_components/angular-mocks/angular-mocks.js?379b5d4c121a4c986fb630e7d90a3b1684bf4c9c:2221:21
-http://localhost:9876/base/src/client/app/components/intro/intro.controller.spec.js?7d9e7a443a7f3b081a03fd89c97d43880014cc36:27:29</div>
-    </div>
-  </div>
-  
-  
 </div>
 
 <script>
@@ -336,7 +327,7 @@ document.body.onkeypress = function (e) {
   switch (e.keyCode) {
     case 102: toggleFold(); break;
     case 49: showSummary(); break;
-    case 50: showFailures(); break;
+    
   }
 };
 

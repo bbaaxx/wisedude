@@ -23,6 +23,7 @@
           controllerAs: 'vmNtr',
           title: 'Intro',
           settings: {
+            requiresSignin: true,
             nav: 2,
             content: '<i class="fa fa-lock"></i> Intro'
           }
@@ -32,18 +33,6 @@
   }
 
   function getResolves() {
-    return {
-      authStatus: [
-        '$state',
-        'profileManagementService',
-        function ($state, profileManagementService) {
-          return profileManagementService
-            .getCurrentUser()
-            .catch(function(e) {
-              $state.go('signin')
-            });
-        }
-      ]
-    };
+    return {};
   }
 })();

@@ -14,8 +14,13 @@
     <!-- expand this span to align right the next set of buttons -->
     <span flex></span>
 
-    <md-button class="md-icon-button" aria-label="Sign in" href="/signin">
-      <md-icon md-font-icon="fa-sign-in"></md-icon>
+    <md-button ng-if="!currentUser" class="md-button" aria-label="Sign in" href="/signin">
+      <md-icon md-font-icon="fa-sign-in"></md-icon>Sign in
+      <!-- <md-icon md-svg-icon="img/icons/more_vert.svg"></md-icon> -->
+    </md-button>
+
+    <md-button ng-if="currentUser" class="md-button" aria-label="Sign out" ng-click="vmWht.signout()">
+      <md-icon md-font-icon="fa-sign-out"></md-icon>Sign out
       <!-- <md-icon md-svg-icon="img/icons/more_vert.svg"></md-icon> -->
     </md-button>
   </div>

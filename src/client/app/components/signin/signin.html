@@ -1,6 +1,14 @@
 <h2>Sign in</h2>
 
-<div layout="column" class="md-inline-form" ng-cloak>
+
+
+<section layout="row" layout-sm="column" layout-align="center" layout-wrap>
+  <md-button class="md-raised" ng-click="vmSgn.doSignin('google', vmSgn.signinForm)">Google Sign in</md-button>
+  <md-button class="md-raised" ng-click="vmSgn.doSignin('github', vmSgn.signinForm)">Github Sign in</md-button>
+  <md-button class="md-raised" ng-click="vmSgn.showForm(true)">Email and password</md-button>
+</section>
+
+<div layout="column" class="md-inline-form" ng-if="vmSgn.formVisible" ng-cloak>
 
   <md-content md-theme="docs-dark" layout-gt-sm="row" layout-padding>
     <form name="vmSgn.signinForm" ng-submit="vmSgn.doSignin('password', vmSgn.signinForm)">
@@ -19,17 +27,13 @@
         </ng-form>
       </md-input-container>
 
-      <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+      <md-input-container>
         <md-button class="md-raised md-primary" type="submit">Sign in</md-button>
-        <md-button class="md-raised md-warn" ng-click="vmSgn.doSignout()">Sign out</md-button>
-      </section>
+      </md-input-container>
 
     </form>
-    <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
-      <md-button class="md-raised md-warn" ng-click="vmSgn.doSignin('google', vmSgn.signinForm)">Google Sign in</md-button>
-    </section>
   </md-content>
-  <h4>User data</h4>
-  <json-formatter json="vmSgn.signinForm"></json-formatter>
-  {{vmSgn.user | json}}
 </div>
+
+<h4>Form data</h4>
+<json-formatter json="vmSgn"></json-formatter>

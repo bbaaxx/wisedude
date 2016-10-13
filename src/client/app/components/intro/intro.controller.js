@@ -5,9 +5,9 @@
     .module('app.intro')
     .controller('IntroController', IntroController);
 
-  IntroController.$inject = ['logger', 'authStatus', 'profileManagementService', 'COLORS'];
+  IntroController.$inject = ['logger', 'profileManagementService', 'COLORS'];
   /* @ngInject */
-  function IntroController(logger, authStatus, profileManagementService, COLORS) {
+  function IntroController(logger, profileManagementService, COLORS) {
     var vmNtr = this;
     vmNtr.title = 'Intro';
 

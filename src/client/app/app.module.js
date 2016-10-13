@@ -3,7 +3,7 @@
 
   angular.module('app', [
     'app.core',
-    'app.layout',
+    'app.shell',
     'app.intro',
     'app.signin',
     'app.shefotest',

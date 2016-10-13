@@ -30,11 +30,11 @@
     //////////
 
     RouterHelper.$inject = [
-      '$location', '$rootScope', '$state', 'profileManagementService','logger'
+      '$location', '$rootScope', '$state', 'authService', 'logger'
     ];
     /* @ngInject */
     function RouterHelper(
-      $location, $rootScope, $state, profileManagementService, logger
+      $location, $rootScope, $state, authService, logger
     ) {
       var handlingStateChangeError = false;
       var hasOtherwise = false;
@@ -58,6 +58,7 @@
       function init() {
         handleRoutingErrors();
         updateAppwideState();
+        checkAuthentication();
       }
 
       function getStates() {
@@ -74,6 +75,44 @@
           hasOtherwise = true;
           $urlRouterProvider.otherwise(otherwisePath);
         }
+      }
+
+      function checkAuthentication() {
+        $rootScope.$on('$stateChangeStart',
+          function(event, toState, toParams, fromState, fromParams) {
+            if (fromParams.skipAuthCheck) {return;}
+            if (toState.settings && toState.settings.requiresSignin) {
+              event.preventDefault();
+              logger.info('Checking authentication');
+              authService.asyncCheckIfSignedIn()
+                .then(authCheckPass)
+                .catch(authCheckFails);
+              function authCheckPass() {
+                fromParams.skipAuthCheck = true;
+                $state.go(toState.name, toParams);
+              }
+              function authCheckFails() {
+                $state.go('signin', toParams);
+              }
+            }
+
+          })
+      }
+
+      function updateAppwideState() {
+        $rootScope.$on('$stateChangeSuccess',
+          function(event, toState, toParams, fromState, fromParams) {
+
+            // Handle counter and errors
+            stateCounts.changes++;
+            handlingStateChangeError = false;
+
+            // Set title from state settings
+            var title = config.docTitle + ' ' + (toState.title || '');
+            $rootScope.title = title; // data bind to <title>
+
+          }
+        );
       }
 
       function handleRoutingErrors() {
@@ -99,31 +138,6 @@
         );
       }
 
-      function updateAppwideState() {
-        $rootScope.$on('$stateChangeSuccess',
-          function(event, toState, toParams, fromState, fromParams) {
-
-            // Handle counter and errors
-            stateCounts.changes++;
-            handlingStateChangeError = false;
-
-            // Set title from state settings
-            var title = config.docTitle + ' ' + (toState.title || '');
-            $rootScope.title = title; // data bind to <title>
-
-            profileManagementService
-              .getCurrentUser()
-              .then(function(user) {
-                $rootScope.currentUser = user;
-                // $rootScope.$broadcast()
-              })
-              .catch(function(e) {
-                $rootScope.currentUser = void 0;
-              });
-
-          }
-        );
-      }
     }
   }
 })();

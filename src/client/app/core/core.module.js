@@ -12,6 +12,7 @@
       'blocks.logger',
       'blocks.router',
       'blocks.geoloc',
+      'blocks.auth-service',
       'blocks.firebase-dataservice',
       'blocks.backand-dataservice',
       'blocks.profile-management',

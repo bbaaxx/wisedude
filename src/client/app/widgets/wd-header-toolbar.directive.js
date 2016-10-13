@@ -11,23 +11,19 @@
     //<div wd-header-toolbar title="{{vm.title}}"></div>
 
     var directive = {
-      scope: {
-        'title': '@',
-        'currentUser': '='
-      },
+
       templateUrl: 'app/widgets/ws-header-toolbar.html',
       restrict: 'EA',
-      link: link
+      controller: controller,
+      controllerAs: 'vmWht'
     };
     return directive;
 
-    function link(scope, element, attr) {
-      // scope.toggleContent = function() {
-      //   if (scope.allowCollapse === 'true') {
-      //     var content = angular.element(element).siblings('.widget-content');
-      //     content.toggle();
-      //   }
-      // };
+    ///////
+
+    /* @ngInject */
+    function controller($scope, authService) {
+      this.signout = authService.userSignOut;
     }
   }
 })();
